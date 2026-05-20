@@ -12,15 +12,15 @@
  */
 
 export const FIREBASE_CONFIG = {
-  apiKey: "SUA_API_KEY_AQUI",
-  authDomain: "SEU_AUTH_DOMAIN_AQUI",
-  projectId: "SEU_PROJECT_ID_AQUI",
-  storageBucket: "SEU_STORAGE_BUCKET_AQUI",
-  messagingSenderId: "SEU_SENDER_ID_AQUI",
-  appId: "SEU_APP_ID_AQUI"
+  apiKey: "AIzaSyCCEXq_Fo-S6a5mInV662oeDAyCkSa1pLs",
+  authDomain: "casamento-henrique-nathalia.firebaseapp.com",
+  projectId: "casamento-henrique-nathalia",
+  storageBucket: "casamento-henrique-nathalia.firebasestorage.app",
+  messagingSenderId: "946751024592",
+  appId: "1:946751024592:web:608d73d703c037ee40ddd5"
 };
 
-export const USE_FIREBASE = false;
+export const USE_FIREBASE = true;
 
 // Senha padrão de acesso para o painel administrativo (Perfil da Noiva)
 export const ADMIN_PASSWORD = "henriqueenathalia";
