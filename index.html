@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site de Casamento de Henrique & Nathália - 13 de Dezembro. Save the Date, Confirmação de Presença e Lista de Presentes Online.">
+  <title>Casamento de Henrique & Nathália</title>
+
+  <!-- Importações de Estilo do Site -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- 1. CABEÇALHO E MENU SUPERIOR -->
+  <header>
+    <div class="navbar">
+      <a href="#inicio" class="logo">
+        H<span>&</span>N
+      </a>
+      
+      <!-- Botão Hambúrguer Mobile -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir Menu">
+        <span id="mobile-menu-btn-icon">&#9776;</span>
+      </button>
+
+      <!-- Lista do Menu (Gerada dinamicamente pelo JS) -->
+      <ul class="nav-menu" id="nav-menu-list">
+        <!-- Itens de abas inseridos pelo app.js -->
+      </ul>
+    </div>
+  </header>
+
+  <!-- 2. CONTEÚDO PRINCIPAL (SPA TABS) -->
+  <main>
+
+    <!-- ABA 1: INÍCIO (SAVE THE DATE & CONTADOR) -->
+    <section id="section-inicio" class="tab-content active">
+      <!-- Banner Dinâmico (Slideshow) -->
+      <div class="hero-slider-container">
+        <div id="hero-slideshow">
+          <!-- Slides gerados pelo slideshow.js -->
+        </div>
+        
+        <!-- Conteúdo Textual do Banner -->
+        <div class="hero-content">
+          <div class="hero-save-the-date" id="std-subtitle">Save the Date</div>
+          <h1 class="hero-title" id="std-title">Henrique & Nathália</h1>
+          <div class="hero-date-location" id="std-details-text">13 de Dezembro • Rio Grande/RS</div>
+          
+          <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+            <a href="#presentes" class="btn btn-primary">Ver Lista de Presentes</a>
+            <a href="#local" class="btn btn-secondary" style="border-color: white; color: white;">Local do Evento</a>
+          </div>
+        </div>
+
+        <!-- Indicadores de Foto -->
+        <div class="slide-indicators" id="slide-indicators"></div>
+
+        <!-- Seta indicativa de scroll -->
+        <a href="#countdown-anchor" class="scroll-down-arrow" aria-label="Ver contagem regressiva">&#8595;</a>
+      </div>
+
+      <!-- Contagem Regressiva -->
+      <div class="countdown-section" id="countdown-anchor">
+        <div class="section-container">
+          <h2 style="font-family: var(--font-title); font-size: 1.8rem; font-weight: 400; color: var(--dark-charcoal);">
+            Contagem Regressiva para o Nosso Grande Dia
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;" id="countdown-message">
+            Cada segundo nos aproxima de vivermos o nosso sonho!
+          </p>
+
+          <div class="countdown-container">
+            <div class="countdown-box animate-float" style="animation-delay: 0s;">
+              <div class="countdown-number" id="countdown-days">00</div>
+              <div class="countdown-label">Dias</div>
+            </div>
+            <div class="countdown-box animate-float" style="animation-delay: 0.2s;">
+              <div class="countdown-number" id="countdown-hours">00</div>
+              <div class="countdown-label">Horas</div>
+            </div>
+            <div class="countdown-box animate-float" style="animation-delay: 0.4s;">
+              <div class="countdown-number" id="countdown-mins">00</div>
+              <div class="countdown-label">Minutos</div>
+            </div>
+            <div class="countdown-box animate-float" style="animation-delay: 0.6s;">
+              <div class="countdown-number" id="countdown-secs">00</div>
+              <div class="countdown-label">Segundos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 2: NOSSA HISTÓRIA -->
+    <section id="section-historia" class="tab-content section-padding">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Nossa História</h2>
+          <p>Um pouco dos momentos mais especiais que nos trouxeram até aqui.</p>
+        </div>
+
+        <!-- Container da Linha do Tempo (Gerada dinamicamente) -->
+        <div class="timeline" id="story-timeline-container">
+          <!-- Momentos renderizados pelo app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 3: LISTA DE PRESENTES -->
+    <section id="section-presentes" class="tab-content section-padding">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Lista de Presentes</h2>
+          <p>Queridos convidados, a sua presença é o nosso maior presente! Se desejarem nos ajudar a equipar nosso novo lar, preparamos uma lista de sugestões abaixo. Confirme o item escolhido digitando apenas nome e telefone.</p>
+        </div>
+
+        <!-- Filtros de Presentes -->
+        <div class="gift-filters">
+          <button class="filter-btn active" data-filter="all">Todos os Presentes</button>
+          <button class="filter-btn" data-filter="available">Disponíveis</button>
+          <button class="filter-btn" data-filter="reserved">Reservados</button>
+        </div>
+
+        <!-- Grid de Itens (Gerado dinamicamente) -->
+        <div class="gift-grid" id="gift-grid">
+          <!-- Presentes injetados pelo registry.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA 4: LOCAL & TRAJE -->
+    <section id="section-local" class="tab-content section-padding">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Informações, Local & Trajes</h2>
+          <p>Tudo o que você precisa saber para aproveitar o grande dia conosco em Rio Grande/RS!</p>
+        </div>
+
+        <div class="info-grid">
+          <!-- Card de Localização -->
+          <div class="info-card animate-fadeIn" style="animation-delay: 0s;">
+            <div class="info-icon">📍</div>
+            <h3>O Local</h3>
+            <p id="info-location-description">
+              Rio Grande, RS - Detalhes do salão de festas e igreja serão atualizados em breve!
+            </p>
+            <a href="https://maps.google.com/?q=Rio+Grande,+RS" target="_blank" class="btn btn-secondary">Abrir no Google Maps</a>
+          </div>
+
+          <!-- Card de Dress Code -->
+          <div class="info-card animate-fadeIn" style="animation-delay: 0.2s;">
+            <div class="info-icon">👗</div>
+            <h3>Traje Sugerido</h3>
+            <p id="info-dress-description">
+              O traje sugerido para a nossa celebração é Esporte Fino. Desejamos que todos estejam confortáveis para dançar a noite inteira!
+            </p>
+            <div class="dress-code-colors">
+              <div class="color-bubble" style="background-color: #e8c5c8;" title="Rosé"></div>
+              <div class="color-bubble" style="background-color: #d4a373;" title="Nude"></div>
+              <div class="color-bubble" style="background-color: #b88a8f;" title="Terracota"></div>
+              <div class="color-bubble" style="background-color: #a3b19b;" title="Verde Sálvia"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapa Embutido Interativo -->
+        <div class="map-container">
+          <!-- Localização centralizada em Rio Grande, RS -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d54238.16335165604!2d-52.13401568285558!3d-32.03714902148112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95119dcfa3a0279b%3A0xc0098df24b179b50!2sRio%20Grande%2C%20RS!5e0!3m2!1spt-BR!2sbr!4v1716168000000!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABA DINÂMICA: CHÁ DE PANELA (Renderizada sob demanda via JS) -->
+    <section id="section-cha-panela" class="tab-content section-padding">
+      <!-- Preenchido pelo app.js se ativo -->
+    </section>
+
+    <!-- ABA DINÂMICA: PADRINHOS (Renderizada sob demanda via JS) -->
+    <section id="section-padrinhos" class="tab-content section-padding">
+      <!-- Preenchido pelo app.js se ativo -->
+    </section>
+
+    <!-- ABA ADMIN: PERFIL DA NOIVA (Customização total) -->
+    <section id="section-admin" class="tab-content">
+      <div id="admin-container">
+        <!-- Injetado dinamicamente pelo admin.js (Login ou Dashboard) -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 3. RODAPÉ -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo couple-names-label">Henrique & Nathália</div>
+      <div class="footer-date" id="footer-date-label">13 de Dezembro de 2026</div>
+      <p class="footer-text">Feito com carinho para celebrar a nossa união. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- 4. MODAL DE CONFIRMAÇÃO DE PRESENTE -->
+  <div class="modal-backdrop" id="claim-modal-backdrop">
+    <div class="modal">
+      <button class="modal-close" id="modal-close-trigger" aria-label="Fechar Modal">&times;</button>
+      <h3 class="modal-title">Escolher Presente</h3>
+      <p class="modal-description">Você selecionou: <strong id="modal-gift-name" style="color: var(--primary-accent);">Faqueiro Inox</strong>. Cadastre seu nome e telefone para confirmar o presente. Ficamos extremamente gratos! ♥</p>
+      
+      <form id="claim-gift-form">
+        <div class="form-group">
+          <label class="form-label" for="modal-guest-name">Seu Nome Completo</label>
+          <input class="form-input" type="text" id="modal-guest-name" placeholder="Digite seu nome..." required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="modal-guest-phone">Seu Telefone (WhatsApp)</label>
+          <input class="form-input" type="tel" id="modal-guest-phone" placeholder="Ex: (53) 99999-9999" required>
+        </div>
+        <button class="btn btn-primary" type="submit" style="width: 100%; margin-top: 1rem; padding: 1rem;">Confirmar Presente</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Script Principal SPA (Tipo Módulo) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

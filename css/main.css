@@ -1,0 +1,315 @@
+/* css/main.css */
+
+/* Importação das fontes elegantes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Cores padrão sugeridas (Marsala, Begezinho e Verde das Flores) */
+  --primary-color: #722f37; /* Marsala */
+  --primary-rose: #f5ebe0;  /* Begezinho */
+  --primary-rose-dark: #e3d5ca;
+  --primary-accent: #722f37; /* Destaque principal */
+  --sage-green: #8a9a86;     /* Verde das flores */
+  --dark-charcoal: #2b2d42;  /* Texto principal */
+  --text-muted: #6c757d;     /* Texto secundário */
+  
+  /* Fundos */
+  --bg-main: #fcfbf7;        /* Off-white quente e suave */
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --border-glass: rgba(255, 255, 255, 0.4);
+  --shadow-glass: rgba(31, 38, 135, 0.05);
+
+  /* Fontes */
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Efeitos e Transições */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --border-radius-lg: 24px;
+  --border-radius-md: 16px;
+  --border-radius-sm: 8px;
+}
+
+/* Reset Geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--dark-charcoal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Scrollbar Personalizada Premium */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-rose);
+  border-radius: var(--border-radius-sm);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent);
+}
+
+/* Estilo do Header e Navbar (Glassmorphism) */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all var(--transition-smooth);
+}
+
+header:not(.scrolled) {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  border-bottom: 1px solid transparent;
+}
+
+header:not(.scrolled) .logo {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header:not(.scrolled) .logo span {
+  color: var(--primary-rose);
+}
+
+header:not(.scrolled) .nav-link {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+header:not(.scrolled) .nav-link:hover, 
+header:not(.scrolled) .nav-link.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+header:not(.scrolled) .mobile-menu-btn {
+  color: #ffffff;
+}
+
+header.scrolled {
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-glass);
+  box-shadow: 0 8px 32px 0 var(--shadow-glass);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header.scrolled .navbar {
+  padding: 0.8rem 2rem;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--dark-charcoal);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color var(--transition-fast);
+}
+
+.logo span {
+  color: var(--primary-accent);
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+}
+
+.logo:hover {
+  color: var(--primary-accent);
+}
+
+/* Menu de Navegação */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--dark-charcoal);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-accent);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: var(--border-glass);
+}
+
+/* Menu Hamburguer Mobile */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--dark-charcoal);
+  cursor: pointer;
+}
+
+/* Seções e Abas SPA */
+main {
+  flex: 1;
+  padding-top: 0; /* O banner de início cobre a tela toda */
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn var(--transition-smooth) forwards;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Rodapé */
+footer {
+  background-color: #f5f4ee;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: var(--dark-charcoal);
+}
+
+.footer-date {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary-accent);
+  margin-bottom: 1.2rem;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Animações Globais */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn var(--transition-smooth) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-heartBeat {
+  animation: heartBeat 2s infinite;
+}
+
+/* Responsividade Básica da Navbar */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: rgba(252, 251, 247, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    gap: 1.5rem;
+    transition: all var(--transition-smooth);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid var(--border-glass);
+  }
+
+  .nav-menu.open {
+    left: 0;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+}
